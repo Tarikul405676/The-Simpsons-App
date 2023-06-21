@@ -1,0 +1,94 @@
+plugins {
+    id 'com.android.application'
+}
+
+apply plugin: 'stringfog'
+
+import com.github.megatronking.stringfog.plugin.kg.RandomKeyGenerator
+stringfog {
+    enable true
+    debug false
+    implementation 'com.github.megatronking.stringfog.xor.StringFogImpl'
+    fogPackages = ["com.techbdhost.support"]
+    kg new RandomKeyGenerator()
+    mode base64
+}
+
+android {
+    compileSdkVersion 32
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.bondhuexpresslab.simsupport"
+        minSdkVersion 23
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+     signingConfigs {
+        debug {
+            storeFile file("../keystores/BondhuSoftwareLAB.jks")
+            storePassword "12341234"
+            keyAlias "BondhuSoftwareLAB"
+            keyPassword "12341234"
+        }
+
+        release {
+            storeFile file("../keystores/BondhuSoftwareLAB.jks")
+            storePassword "12341234"
+            keyAlias "BondhuSoftwareLAB"
+            keyPassword "12341234"
+        }
+    }
+
+    buildTypes {
+    release {
+        debuggable false
+        minifyEnabled true
+        shrinkResources true
+        signingConfig signingConfigs.release
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+
+      debug {
+        debuggable true
+        minifyEnabled true
+        shrinkResources true
+        signingConfig signingConfigs.release
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.github.zcweng:switch-button:0.0.3@aar'
+    implementation 'com.github.romellfudi.VoIpUSSD:ussd-library:1.4.a'
+    implementation 'io.github.everythingme:overscroll-decor-android:1.1.1'
+
+    implementation 'com.github.megatronking.stringfog:xor:4.0.1'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    
+}

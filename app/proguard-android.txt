@@ -1,0 +1,29 @@
+-repackageclasses
+-keepattributes Signature
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+-keep class com.google.gson.examples.android.model.** { *; }
+
+# Keep all classes in your app package
+-keep class your.app.package.** { *; }
+
+# Keep any classes that are referenced by your AndroidManifest.xml
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.view.View
+
+# Keep any native methods that are used by your app
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# Keep any methods that are used for serialization/deserialization
+-keepclassmembers class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+
+# Keep any classes that are used for serialization/deserialization
+-keep class com.yourcompany.yourapp.data.model.** { *; }
