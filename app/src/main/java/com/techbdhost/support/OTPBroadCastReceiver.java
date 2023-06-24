@@ -12,28 +12,33 @@ public class OTPBroadCastReceiver extends BroadcastReceiver{
 
 
     @Override
-    public void onReceive(Context context, Intent intent)
-    {
+    public void onReceive(Context context, Intent intent) {
         // Get Bundle object contained in the SMS intent passed in
         Bundle bundle = intent.getExtras();
-        SmsMessage[] smsMsg = null;
-        String smsStr ="";
-        if (bundle != null)
-        {
+        if (bundle != null) {
             // Get the SMS message
             Object[] pdus = (Object[]) bundle.get("pdus");
-            smsMsg = new SmsMessage[pdus.length];
-            for (int i=0; i<smsMsg.length; i++){
-                smsMsg[i] = SmsMessage.createFromPdu((byte[])pdus[i]);
-                smsStr = smsMsg[i].getMessageBody().toString();
+            if (pdus != null && pdus.length > 0) {
+                SmsMessage[] smsMessages = new SmsMessage[pdus.length];
+                StringBuilder smsStrBuilder = new StringBuilder();
 
-                String Sender = smsMsg[i].getOriginatingAddress();
-                //Check here sender is yours
+                for (int i = 0; i < pdus.length; i++) {
+                    smsMessages[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
+                    String smsBody = smsMessages[i].getDisplayMessageBody();
+                    smsStrBuilder.append(smsBody);
+                }
+
+                String smsStr = smsStrBuilder.toString();
+
+                String sender = smsMessages[0].getOriginatingAddress();
+                // Check if the sender is yours or perform any other filtering if needed
+
                 Intent smsIntent = new Intent("android.provider.Telephony.SMS_RECEIVED");
-                smsIntent.putExtra("message",smsStr);
-                smsIntent.putExtra("Sender",Sender);
+                smsIntent.putExtra("message", smsStr);
+                smsIntent.putExtra("Sender", sender);
                 LocalBroadcastManager.getInstance(context).sendBroadcast(smsIntent);
             }
         }
     }
+
 }

@@ -19,7 +19,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.bondhuexpresslab.simsupport"
+        applicationId "com.techhostbd.softwarelab"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
@@ -30,17 +30,17 @@ android {
 
      signingConfigs {
         debug {
-            storeFile file("../keystores/BondhuSoftwareLAB.jks")
-            storePassword "12341234"
-            keyAlias "BondhuSoftwareLAB"
-            keyPassword "12341234"
+            storeFile file("../keystores/TechHostBD.jks")
+            storePassword "85238523"
+            keyAlias "TechHostBD"
+            keyPassword "85238523"
         }
 
         release {
-            storeFile file("../keystores/BondhuSoftwareLAB.jks")
-            storePassword "12341234"
-            keyAlias "BondhuSoftwareLAB"
-            keyPassword "12341234"
+            storeFile file("../keystores/TechHostBD.jks")
+            storePassword "85238523"
+            keyAlias "TechHostBD"
+            keyPassword "85238523"
         }
     }
 
