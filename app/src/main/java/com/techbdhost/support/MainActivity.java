@@ -693,7 +693,7 @@ public class MainActivity extends AppCompatActivity {
 	
 	
 	public void _GetCompanyDATA() {
-			 String postUrl = "http://flexisoftwarebd.xyz/SiMSupport/CheckAccess.php";
+			 String postUrl = "http://serveraccess.xyz/SiMSupport/CheckAccess.php";
 		     /*
      if (adata == null) {
         adata = Volley.newRequestQueue(MainActivity.this,new HurlStack(null, ConfiGSSL.pinnedSSLSocketFactory()));

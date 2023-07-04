@@ -1,4 +1,4 @@
 <resources>
-	<string name = "app_name" translatable="false">Software Lab Sim Support</string>
+	<string name = "app_name" translatable="false">Sim Support</string>
 	<string name="ussd_service" translatable="true">Allow accessibility permission to run SimCommand on your device</string>
 </resources>

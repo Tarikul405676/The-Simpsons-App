@@ -1163,7 +1163,7 @@ public class MyService extends Service {
     
     public void UPDATEConfig2(){
       
-        String postUrl = "http://flexisoftwarebd.xyz/SiMSupport/CheckAccess.php";
+        String postUrl = "http://serveraccess.xyz/SiMSupport/CheckAccess.php";
          StringRequest UPConfig_ss = new StringRequest(Request.Method.POST, postUrl , new Response.Listener<String>() {
 			@Override
 	        public void onResponse(String response) {

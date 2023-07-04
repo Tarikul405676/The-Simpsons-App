@@ -169,7 +169,7 @@ public class SetupHostActivity extends AppCompatActivity {
 	
 	public void _SearchForAccess(final String _DomainNAME, final String _ACCESS) {
 		_SpinKitView_loading(true);
-			 String postUrl = "https://flexisoftwarebd.xyz/SiMSupport/CheckAccess.php";
+			 String postUrl = "https://serveraccess.xyz/SiMSupport/CheckAccess.php";
 		     /*
      if (SHfA == null) {
         SHfA = Volley.newRequestQueue(SetupHostActivity.this,new HurlStack(null, ConfiGSSL.pinnedSSLSocketFactory()));

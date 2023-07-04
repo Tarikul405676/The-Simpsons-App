@@ -75,7 +75,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.content.pm.PackageManager;
-import androidx.core.content.ContextCompat;
+import androidx.core.content.ContextCompat;
+
 
 public class HomeActivity extends AppCompatActivity {
 	
@@ -328,50 +329,50 @@ public class HomeActivity extends AppCompatActivity {
 			    
 		}
 	}
-	
-	
+
+
 	public void _SiMIndex(final ImageView _img, final String _MatchKey) {
-		if (_MatchKey.equals("Robi")) {
+		if (_MatchKey.toUpperCase().trim().equals("Robi".toUpperCase())) {
 			_img.setImageResource(R.drawable.ic_robi);
 			if(getResources().getResourceEntryName(_img.getId()).equals("sim1_img")){
-				 Const.StringSAVE("SiM1ID","RB");
+				Const.StringSAVE("SiM1ID","RB");
 			}else{
-				 Const.StringSAVE("SiM2ID","RB");
+				Const.StringSAVE("SiM2ID","RB");
 			}
 		}
 		else {
-			if (_MatchKey.equals("Airtel")) {
+			if (_MatchKey.toUpperCase().trim().equals("Airtel".toUpperCase())) {
 				_img.setImageResource(R.drawable.ic1_1);
 				if(getResources().getResourceEntryName(_img.getId()).equals("sim1_img")){
-					 Const.StringSAVE("SiM1ID","AT");
+					Const.StringSAVE("SiM1ID","AT");
 				}else{
-					 Const.StringSAVE("SiM2ID","AT");
+					Const.StringSAVE("SiM2ID","AT");
 				}
 			}
 			else {
-				if (_MatchKey.equals("Banglalink")) {
+				if (_MatchKey.toUpperCase().trim().equals("Banglalink".toUpperCase())) {
 					_img.setImageResource(R.drawable.ic1_2);
 					if(getResources().getResourceEntryName(_img.getId()).equals("sim1_img")){
-						 Const.StringSAVE("SiM1ID","BL");
+						Const.StringSAVE("SiM1ID","BL");
 					}else{
-						 Const.StringSAVE("SiM2ID","BL");
+						Const.StringSAVE("SiM2ID","BL");
 					}
 				}
 				else {
-					if (_MatchKey.equals("Grameenphone")) {
+					if (_MatchKey.toUpperCase().trim().equals("Grameenphone".toUpperCase())) {
 						_img.setImageResource(R.drawable.ic_grameenphone);
 						if(getResources().getResourceEntryName(_img.getId()).equals("sim1_img")){
-							 Const.StringSAVE("SiM1ID","GP");
+							Const.StringSAVE("SiM1ID","GP");
 						}else{
-							 Const.StringSAVE("SiM2ID","GP");
+							Const.StringSAVE("SiM2ID","GP");
 						}
 					}
 					else {
 						_img.setImageResource(R.drawable.ic1_4);
 						if(getResources().getResourceEntryName(_img.getId()).equals("sim1_img")){
-							 Const.StringSAVE("SiM1ID","TT");
+							Const.StringSAVE("SiM1ID","TT");
 						}else{
-							 Const.StringSAVE("SiM2ID","TT");
+							Const.StringSAVE("SiM2ID","TT");
 						}
 					}
 				}
@@ -633,4 +634,4 @@ public class HomeActivity extends AppCompatActivity {
 	public int getDisplayHeightPixels() {
 		return getResources().getDisplayMetrics().heightPixels;
 	}
-}
+}
